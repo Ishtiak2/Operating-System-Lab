@@ -10,7 +10,7 @@ int main(){
 
     if(pid==0){
         printf("Child : My pid is %d\n",getpid());
-        sleep(10);
+        sleep(5);
         
         printf("Child : I am exiting now \n");
         
