@@ -36,3 +36,12 @@ int main() {
 
     return 0;
 }
+
+/*
+Problem
+
+Both producer and consumer access buffer_count at the same time.
+Sometimes the consumer may read/update buffer_count while the producer is updating it, causing wrong behavior or out-of-bounds access.
+Fix Using std::mutex
+
+*/
