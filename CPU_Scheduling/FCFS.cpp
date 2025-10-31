@@ -11,7 +11,7 @@ void fcfs(int n, int bt[], int at[]) {
    // Assign process IDs
    for (int i = 1; i <= n; i++) {
       pid[i] = i;
-    }
+   }
 
    // Sort by arrival time
    for (int i = 1; i <= n - 1; i++) {
