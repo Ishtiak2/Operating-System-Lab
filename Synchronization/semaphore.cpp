@@ -12,8 +12,10 @@ void thread_fun_1()
 {
     sem_wait(&s); // Wait (decrement) the semaphore
     printf("Thread 1: Entering critical section\n");
+    
     int temp = shared;
     sleep(1); // Simulate some work in the critical section
+    
     shared = temp + 1;
     printf("Thread 1: Exiting critical section, shared = %d\n", shared);
     sem_post(&s); // Signal (increment) the semaphore
@@ -23,8 +25,10 @@ void thread_fun_2()
 {
     sem_wait(&s); // Wait (decrement) the semaphore
     printf("Thread 2: Entering critical section\n");
+    
     int temp = shared;
     sleep(1); // Simulate some work in the critical section
+    
     shared = temp + 2;
     printf("Thread 2: Exiting critical section, shared = %d\n", shared);
     sem_post(&s); // Signal (increment) the semaphore
