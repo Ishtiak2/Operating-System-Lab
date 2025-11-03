@@ -34,7 +34,7 @@ echo "4) Division (/)"
 read -p "Enter choice [1-4]: " choice
 
 # Perform operation using if-elif-else
-if [ "$choice" -eq 1 ]
+if [ $choice -eq 1 ]
 then
     result=$(add $a $b) #way-1
     echo "a + b = $result"
@@ -48,8 +48,7 @@ elif [ "$choice" -eq 3 ]
 then
     echo "a * b = $((a*b))"
 
-elif [ "$choice" -eq 4 ]
-then
+elif [ "$choice" -eq 4 ]; then
     echo "a / b = $((a/b))"
 else
     echo "Invalid choice!"
