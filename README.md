@@ -1,10 +1,10 @@
-# 🖥️ Operating System Lab
+#  Operating System Lab
 
 A comprehensive collection of Operating System concepts implemented in C++ and Shell scripting.
 
 ---
 
-## � Table of Contents
+##  Table of Contents
 
 - [Process Management](#-process-management)
 - [Multi-Threading](#-multi-threading)
@@ -16,7 +16,7 @@ A comprehensive collection of Operating System concepts implemented in C++ and S
 
 ---
 
-## 🔄 Process Management
+##  Process Management
 
 Understanding process creation, lifecycle, and states.
 
@@ -32,7 +32,7 @@ Understanding process creation, lifecycle, and states.
 
 ---
 
-## 🧵 Multi-Threading
+##  Multi-Threading
 
 Parallel programming with C++ `std::thread`.
 
@@ -53,7 +53,7 @@ Parallel programming with C++ `std::thread`.
 
 ---
 
-## 🔐 Synchronization
+##  Synchronization
 
 Thread synchronization and critical section protection.
 
@@ -68,7 +68,7 @@ Thread synchronization and critical section protection.
 
 ---
 
-## ⏰ CPU Scheduling
+##  CPU Scheduling
 
 CPU scheduling algorithm implementations.
 
@@ -83,7 +83,7 @@ CPU scheduling algorithm implementations.
 
 ---
 
-## 🐚 Shell Scripting
+##  Shell Scripting
 
 Bash scripting examples and utilities.
 
@@ -104,22 +104,22 @@ Bash scripting examples and utilities.
 
 **Key Concepts:** Bash scripting, file operations, loops, conditionals, string manipulation
 
-## 📝 Additional Notes
+##  Additional Notes
 
-- ✅ All executables compile to `/tmp/` to keep workspace clean
-- ✅ VS Code configured with Homebrew GCC-15 as default compiler
-- ✅ Code Runner extension configured for one-click compilation
-- ✅ Always use `-pthread` flag when compiling threaded programs
-- ✅ Lambda functions recommended for thread creation on macOS
+-  All executables compile to `/tmp/` to keep workspace clean
+-  VS Code configured with Homebrew GCC-15 as default compiler
+-  Code Runner extension configured for one-click compilation
+-  Always use `-pthread` flag when compiling threaded programs
+-  Lambda functions recommended for thread creation on macOS
 
 ---
 
-## 👤 Author
+##  Author
 
 **Ishtiak Rahman**
 
 ---
 
-## 📅 Last Updated
+##  Last Updated
 
 November 4, 2025
