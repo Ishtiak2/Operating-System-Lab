@@ -1,0 +1,19 @@
+🧠 Analogy
+Imagine a room:
+•	A semaphore is like a room that can hold up to N people at once.
+o	Each person entering calls wait() → count decreases.
+o	Each leaving calls signal() → count increases.
+•	A mutex is like a room that allows only 1 person at a time.
+o	Only the person who locked the door can unlock it.
+So, a mutex = binary semaphore + ownership rule.
+🧠 What is a Counting Semaphore?
+A counting semaphore is a synchronization tool that allows up to N threads to access a resource concurrently.
+It maintains a counter:
+•	When a thread wants to use the resource → it decrements the counter (acquire() or wait()).
+•	When a thread finishes → it increments the counter (release() or signal()).
+If the counter reaches 0, any other threads trying to enter must wait until someone releases it.
+ 
+🏗 for-Example Scenario
+Suppose you have 3 printers, and multiple threads (users) want to print.
+At most 3 users can print simultaneously — the others must wait.
+That’s a counting semaphore problem. 🎯
