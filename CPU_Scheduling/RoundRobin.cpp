@@ -1,84 +1,82 @@
-#include <iostream>
-#include <iomanip>
+#include <bits/stdc++.h>
 using namespace std;
+const int MAX = 10;
 
-#define MAX 10
-
-void roundRobin(int n, int bt[], int p[], int tq)
+void round_robin(int n, int bt[], int p[], int qt)
 {
-    int rem_bt[MAX], wt[MAX] = {0}, tat[MAX] = {0};
-    float awt = 0, atat = 0;
-    int done = 0;
-    int currentTime = 0;
+    int wt[MAX] = {0}, tat[MAX] = {0}, last[MAX] = {0};
+    int bt_orig[MAX];
 
-    // Copy burst times to remaining burst time array
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        rem_bt[i] = bt[i];
+        bt_orig[i] = bt[i]; // store original burst time
     }
 
-    while (done < n)
+    int curr_time = 0;
+    int completed = 0;
+
+    while (completed < n)
     {
-        bool allDone = true;
-
-        for (int i = 1; i <= n; i++)
+        bool done = true;
+        for (int i = 0; i < n; i++)
         {
-            if (rem_bt[i] > 0)
+            if (bt[i] > 0)
             {
-                allDone = false;
-                int timeSlice = (rem_bt[i] < tq) ? rem_bt[i] : tq;
+                done = false;
+                wt[i] += curr_time - last[i];
 
-                rem_bt[i] -= timeSlice;
-                currentTime += timeSlice;
-
-                if (rem_bt[i] == 0)
+                if (bt[i] <= qt)
                 {
-                    tat[i] = currentTime;
-                    wt[i] = tat[i] - bt[i];
-                    awt += wt[i];
-                    atat += tat[i];
-                    done++;
+                    curr_time += bt[i];
+                    bt[i] = 0;
+                    completed++;
                 }
+
+                else
+                {
+                    curr_time += qt;
+                    bt[i] -= qt;
+                }
+
+                last[i] = curr_time;
             }
         }
 
-        if (allDone)
+        if (done)
             break;
     }
 
-    cout << "\nPR\tBT\tWT\tTAT\n";
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        cout << p[i] << "\t" << bt[i] << "\t" << wt[i] << "\t" << tat[i] << endl;
+        tat[i] = wt[i] + bt_orig[i];
     }
 
-    awt /= n;
-    atat /= n;
-
-    cout << fixed << setprecision(2);
-    cout << "\nAverage Waiting Time: " << awt;
-    cout << "\nAverage Turnaround Time: " << atat << endl;
+    cout << "\nProcess\tBT\tWT\tTAT\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << "P" << p[i] << "\t" << bt_orig[i] << "\t" << wt[i] << "\t" << tat[i] << endl;
+    }
 }
 
 int main()
 {
-    int n, bt[MAX], p[MAX], tq;
+    int n, bt[MAX], p[MAX], qt;
 
     cout << "Enter number of processes: ";
     cin >> n;
 
     cout << "Enter Burst Times:\n";
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        cout << "Process " << i << ": ";
+        cout << "Process " << i + 1 << ": ";
         cin >> bt[i];
-        p[i] = i; // process IDs
+        p[i] = i + 1;
     }
 
     cout << "Enter Time Quantum: ";
-    cin >> tq;
+    cin >> qt;
 
-    roundRobin(n, bt, p, tq);
+    round_robin(n, bt, p, qt);
 
     return 0;
 }

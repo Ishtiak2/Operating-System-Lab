@@ -1,3 +1,4 @@
+//This is just a simulation not the actual process
 #include <stdio.h>
 
 int writing = 0;     // none is writing at the start
