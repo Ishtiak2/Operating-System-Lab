@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 📂 Recursive File Lister
 
-man find
+#man find
 read -p "Enter directory path: " dir
 
 
